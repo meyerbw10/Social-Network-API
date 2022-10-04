@@ -31,6 +31,8 @@ Link to deployed website: https://github.com/meyerbw10/Social-Network-API
 
 ### Usage & Mock Up
 
+Video Demo: https://www.youtube.com/watch?v=8MNNWxFA4n8
+
 ![](/pic1.png)
 
 ---
