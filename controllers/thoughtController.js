@@ -69,7 +69,7 @@ module.exports = {
 
   },
   deleteReaction(req, res) {
-    Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $pull: { reactions: { reactionId: req.body.reactionId } } }, { new: true })
+    Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $pull: { reactions: { _id: req.params.reactionId } } }, { new: true })
       .then(dbThoughtsData => {
         if (!dbThoughtsData) {
           res.status(404).json({ message: 'No thoughts with this particular ID!' });

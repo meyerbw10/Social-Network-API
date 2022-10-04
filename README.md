@@ -17,7 +17,7 @@
 
 ## Project Description 
 
-For my 14th project I wanted to Create a working Social Network backend! are on display via Github, with clickable images as well as my resume in a clickable PDF file. 
+For my 14th project I wanted to Create a working Social Network backend Where you can create Users and posts, add and update users as well as adding friends and comments onto posts (thoughts). My Projects are on display via Github, with clickable images as well as my resume in a clickable PDF file. 
 
 ---
 
@@ -31,7 +31,7 @@ Link to deployed website: https://github.com/meyerbw10/Social-Network-API
 
 ### Usage & Mock Up
 
-
+![](/pic1.png)
 
 ---
 
@@ -60,10 +60,14 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 
 ## Change Log
-## v1.0.0
+## v1.3.9
 
 - updating Readme
-
+- Adding file skeleton
+- All models and controllers brought in 
+- routes tuned up 
+- seeded database 
+- updated readme
 
 ---
 
