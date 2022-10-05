@@ -1,29 +1,20 @@
 {
-  "dependencies": {
-    "express": "^4.17.2",
-    "mongoose": "^6.2.2"
-  },
-  "name": "thought-networking-api",
-  "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {},
+  "name": "Socia-Network-API",
+  "version": "1.0.1",
+  "description": "Mongoose back-end project - Main",
+  "main": "server.js",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
     "dev": "nodemon server",
-    "seed": "node seeds/seed.js",
-    "heroku-postbuild": "node seeds/seed.js"
+    "seed": "node utils/seed",
+    "heroku-postbuild": "node utils/seed.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JunoNguyen/thought-networking-api.git"
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.13"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JunoNguyen/thought-networking-api/issues"
-  },
-  "homepage": "https://github.com/JunoNguyen/thought-networking-api#readme",
-  "description": ""
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
 }

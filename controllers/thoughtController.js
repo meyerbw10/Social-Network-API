@@ -1,12 +1,18 @@
 const { Thought, User } = require('../models');
 
+
+
 module.exports = {
+
+  // Get All Thoughts
   getThoughts(req, res) {
     Thought.find()
       .populate({ path: 'reactions', select: '-__v' })
       .then((thoughts) => res.json(thoughts))
       .catch((err) => res.status(500).json(err));
   },
+
+  // Get Single Thougt
   getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
       .populate({ path: 'reactions', select: '-__v' })
@@ -18,6 +24,8 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+
+  // Create Thought
   createThought(req, res) {
     Thought.create(req.body)
       .then(({ _id }) => {
@@ -31,6 +39,8 @@ module.exports = {
         return res.status(500).json(err);
       });
   },
+
+  // Delete Thought
   deleteThought(req, res) {
     Thought.findOneAndDelete({ _id: req.params.thoughtId })
       .then((thought) =>
@@ -40,6 +50,8 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+
+  // Update Thought
   updateThought(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
@@ -54,6 +66,8 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+
+  // Add Reaction
   addReaction(req, res) {
     Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $push: { reactions: req.body } }, { new: true, runValidators: true })
       .populate({ path: 'reactions', select: '-__v' })
@@ -68,6 +82,8 @@ module.exports = {
       .catch(err => res.status(400).json(err))
 
   },
+  
+  // Delete Reaction
   deleteReaction(req, res) {
     Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $pull: { reactions: { _id: req.params.reactionId } } }, { new: true })
       .then(dbThoughtsData => {

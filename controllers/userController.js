@@ -1,6 +1,10 @@
 const { User, Thought } = require('../models');
 
+
+
 module.exports = {
+
+  // Get All Users
   getUsers(req, res) {
     User.find()
       .populate({ path: 'friends', select: '-__v' })
@@ -12,6 +16,8 @@ module.exports = {
         return res.status(500).json(err);
       });
   },
+  
+  // Get Single User
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
       .populate({ path: 'friends', select: '-__v' })
@@ -28,11 +34,15 @@ module.exports = {
         return res.status(500).json(err);
       });
   },
+
+  // Create User
   createUser(req, res) {
     User.create(req.body)
       .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },
+
+  // Update User Info
   updateUser(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
@@ -46,6 +56,8 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+
+  // Delete User
   deleteUser(req, res) {
     User.findOneAndRemove({ _id: req.params.userId })
       .then((user) =>
@@ -69,6 +81,8 @@ module.exports = {
         res.status(500).json(err);
       });
   },
+
+  // Add Friend
   addFriend(req, res) {
     console.log(req.body);
     User.findOneAndUpdate(
@@ -86,7 +100,8 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
-
+  
+// Remove Friend
   removeFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
